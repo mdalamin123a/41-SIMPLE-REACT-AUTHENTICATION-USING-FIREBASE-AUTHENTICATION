@@ -1,10 +1,16 @@
-1. we need to install firebase on react project for connect firebase to react app.
-    ==> npm install --save firebase / npm install firebase --save
+1. je component a firebase dorkar sai component a firebase configure corbo and 
+use korbo.
 
-2. Then we need to import everything(*) as firebase from 'firebase/app'
-    ==> import * as firebase from 'firebase/app'
+2. if we want to authenticate use with Google then we need to import {} 
+GoogleAuthProvider class from firebase/auth. then we need to create a object 
+by using new keyword under component function.
+    ==> import {GoogleAuthProvider} from 'firebase/auth';
 
-3. Then we need to make a firebaseConfig.js file on the project main folder. 
-
-4. Then we need to copy the firebase config obj from project settings option of firebase project overview menu.
-
+    function App(){
+        const provider = new googleAuthProvider();
+        return(
+            <div>
+                <button>Sign in</button>
+            </div>
+        );
+    }
