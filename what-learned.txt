@@ -1,16 +1,16 @@
-1. je component a firebase dorkar sai component a firebase configure corbo and 
-use korbo.
-
-2. if we want to authenticate use with Google then we need to import {} 
-GoogleAuthProvider class from firebase/auth. then we need to create a object 
-by using new keyword under component function.
-    ==> import {GoogleAuthProvider} from 'firebase/auth';
-
-    function App(){
-        const provider = new googleAuthProvider();
-        return(
-            <div>
-                <button>Sign in</button>
-            </div>
-        );
-    }
+1. signInWithPopup() method is used to sign in user with google with popup. the 
+first arg is getAuth() returns vlaue, 2nd arg is provider. And .then() is used 
+to recieve the response and the arg is a callback function. and the parameter 
+of the callback function is result.
+    ==> import {getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+        firebase.initializeApp(firebaseConf);
+        function App(){
+            const provider = GoogleAuthProvider();
+            const handleSignin = () => {
+                signInWithPopup(getAuth(), provider)
+                .then((result) => {
+                    const {displayName, email, photoURL} = result.user;
+                    console.log(displayName, email, photoURL);
+                });
+            }
+        }
